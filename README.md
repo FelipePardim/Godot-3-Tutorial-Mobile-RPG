@@ -6,14 +6,14 @@ A simple mobile RPG game.
 *Game Screen*
 
 ## About
-This repository was developed during a Godot Engine Tutorial made by **Heartbeast** in his YouTube channel, and will be modified and improved for learning purposes.
+This repository was developed during a [Godot Engine Tutorial](https://www.youtube.com/playlist?list=PL9FzW-m48fn1JgK_mavg7ym6nvchF9Yjb) made by **Heartbeast** in his YouTube channel, and will be modified and improved for learning purposes.
 
 ## Technologies
 * Godot Engine 3.2
 
 ## Authors
-* **Heartbeast** - *Initial work*
-  * *[GitHub](https://github.com/uheartbeast)*
+* **Heartbeast** ***(Ben)*** - *Initial work*
+  * *[GitHub Profile](https://github.com/uheartbeast)*
   * *[Youtube Channel](https://www.youtube.com/user/uheartbeast)*
 
 ## License
