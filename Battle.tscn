@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Images/Mobile RPG Mockup.png" type="Texture" id=1]
 [ext_resource path="res://Images/Dungeon.png" type="Texture" id=2]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Battle.gd" type="Script" id=4]
+[ext_resource path="res://PlayerStats.gd" type="Script" id=5]
+[ext_resource path="res://StatsPanel.gd" type="Script" id=6]
 
 [node name="Battle" type="Node"]
 script = ExtResource( 4 )
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource( 5 )
 
 [node name="Dungeon" type="Sprite" parent="."]
 position = Vector2( 45.0071, 80.1236 )
@@ -30,6 +35,49 @@ __meta__ = {
 }
 
 [node name="StatsPanel" type="Panel" parent="UI"]
+margin_left = 3.39722
+margin_top = 52.0
+margin_right = 87.3972
+margin_bottom = 70.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatsContainer" type="HBoxContainer" parent="UI/StatsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+margin_right = 25.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "HP
+25"
+align = 1
+
+[node name="AP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+margin_left = 29.0
+margin_right = 54.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "AP
+3"
+align = 1
+
+[node name="MP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+margin_left = 58.0
+margin_right = 83.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "MP
+10"
+align = 1
+
+[node name="TextboxPanel" type="Panel" parent="UI"]
 margin_top = 137.0
 margin_right = 90.0
 margin_bottom = 160.0
@@ -37,23 +85,73 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SwordButton" type="Button" parent="UI"]
+[node name="BattleActionButtons" type="GridContainer" parent="UI"]
 margin_left = 9.0
 margin_top = 73.0
-margin_right = 41.0
-margin_bottom = 86.0
+margin_right = 81.0
+margin_bottom = 137.0
+custom_constants/vseparation = 3
+custom_constants/hseparation = 8
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwordButton" type="Button" parent="UI/BattleActionButtons"]
+margin_right = 32.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 32, 13 )
 text = "Sword"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextboxPanel" type="Panel" parent="UI"]
-margin_left = 3.0
-margin_top = 52.0
-margin_right = 87.0
-margin_bottom = 70.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TestButton" type="Button" parent="UI/BattleActionButtons"]
+margin_left = 40.0
+margin_right = 72.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton2" type="Button" parent="UI/BattleActionButtons"]
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton3" type="Button" parent="UI/BattleActionButtons"]
+margin_left = 40.0
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton4" type="Button" parent="UI/BattleActionButtons"]
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton5" type="Button" parent="UI/BattleActionButtons"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 72.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton6" type="Button" parent="UI/BattleActionButtons"]
+margin_top = 48.0
+margin_right = 32.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton7" type="Button" parent="UI/BattleActionButtons"]
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 72.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 32, 13 )
+[connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_ap_changed"]
+[connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_hp_changed"]
+[connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_mp_changed"]
 [connection signal="died" from="Enemy" to="." method="_on_Enemy_died"]
-[connection signal="pressed" from="UI/SwordButton" to="." method="_on_SwordButton_pressed"]
+[connection signal="pressed" from="UI/BattleActionButtons/SwordButton" to="." method="_on_SwordButton_pressed"]
