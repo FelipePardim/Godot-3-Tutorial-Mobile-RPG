@@ -4,6 +4,9 @@
 [ext_resource path="res://HealActionButton.gd" type="Script" id=2]
 
 [node name="HealActionButton" instance=ExtResource( 1 )]
-rect_min_size = Vector2( 32, 13 )
 text = "HEAL"
 script = ExtResource( 2 )
+
+[node name="HoverInfo" parent="." index="0"]
+description = "Heal
+Heals 5 health"
