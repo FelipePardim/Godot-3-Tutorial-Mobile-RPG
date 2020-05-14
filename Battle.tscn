@@ -138,8 +138,12 @@ margin_top = 2.0
 margin_right = 87.0
 margin_bottom = 21.0
 custom_styles/normal = SubResource( 2 )
-custom_constants/line_separation = 2
+custom_constants/line_separation = 3
+text = "z"
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BattleActionButtons" type="GridContainer" parent="UI"]
 margin_left = 9.0
